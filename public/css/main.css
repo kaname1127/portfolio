@@ -944,7 +944,7 @@ textarea.form-control {
 .scrollTop {
     position: fixed;
     right: 30px;
-    bottom: 70px;
+    bottom: 90px;
     opacity: 0;
     transition: all 0.4s ease-in-out 0s;
 }
@@ -1181,6 +1181,10 @@ textarea.form-control {
     }
 
     /* footer */
+    #footer {
+        font-size: 12px;
+        padding: 10px;
+    }
     .footer-content {
         width: 100%;
     }
@@ -1261,6 +1265,10 @@ textarea.form-control {
     }
 
     /* footer */
+    #footer {
+        font-size: 12px;
+        padding: 10px;
+    }
     .footer-content {
         width: 380px;
     }

@@ -8,10 +8,6 @@ jQuery(window).load(function(){
 
 });
 
-/* ========================================================================= */
-/*  Welcome Section Slider
-/* ========================================================================= */
-
 $(function() {
 
     var Page = (function() {
@@ -84,7 +80,7 @@ $(function() {
 $(document).ready(function(){
 
 	/* ========================================================================= */
-	/*	Menu item highlighting
+	/*	Menu item 
 	/* ========================================================================= */
 
 	jQuery('#nav').singlePageNav({
@@ -112,9 +108,6 @@ $(document).ready(function(){
         }
     });
 	
-	/* ========================================================================= */
-	/*	Fix Slider Height
-	/* ========================================================================= */	
 
     // Slider Height
     var slideHeight = $(window).height();
@@ -137,9 +130,6 @@ $(document).ready(function(){
 	});
 	
 	
-	/* ========================================================================= */
-	/*	Featured Project Lightbox
-	/* ========================================================================= */
 
 	$(".fancybox").fancybox({
 		padding: 0,
@@ -171,15 +161,30 @@ $(document).ready(function(){
 	
 });
 
+// ==========  return-top ========== //
+$(document).ready(function () {
+    var scrollTop = $(".scrollTop");
+    $(window).scroll(function () {
+        var topPos = $(this).scrollTop();
+        if (topPos > 100) {
+            $(scrollTop).css("opacity", "1");
+        } else {
+            $(scrollTop).css("opacity", "0");
+        }
+    });
+    $(scrollTop).click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });
+});
 
-/* ==========  START GOOGLE MAP ========== */
 
-// When the window has finished loading create our google map below
+/* ========== GOOGLE MAP ========== */
 google.maps.event.addDomListener(window, 'load', init);
 
 function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 
 	    var myLatLng = new google.maps.LatLng(35.707399, 139.663835);
 
@@ -193,8 +198,6 @@ function init() {
 	        scaleControl: false,
 	        draggable: true,
 
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
         styles: [{
             featureType: 'water',
             stylers: [{
@@ -244,14 +247,10 @@ function init() {
         }]
     };
 
-    // Get the HTML DOM element that will contain your map 
-    // We are using a div with id="map" seen below in the <body>
     var mapElement = document.getElementById('map-canvas');
 
-    // Create the Google Map using our element and options defined above
     var map = new google.maps.Map(mapElement, mapOptions);
 
-    // Let's also add a marker while we're at it
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(35.707399, 139.663835),
         map: map,
@@ -262,28 +261,7 @@ function init() {
 // ========== END GOOGLE MAP ========== //
 
 var wow = new WOW ({
-	offset:       75,          // distance to the element when triggering the animation (default is 0)
-	mobile:       false,       // trigger animations on mobile devices (default is true)
+	offset:       75,          
+	mobile:       false,     
 });
 wow.init();
-
-
-
-// ==========  return-top ========== //
-    $(document).ready(function () {
-      var scrollTop = $(".scrollTop");
-      $(window).scroll(function () {
-        var topPos = $(this).scrollTop();
-        if (topPos > 100) {
-        $(scrollTop).css("opacity", "1");
-    } else {
-        $(scrollTop).css("opacity", "0");
-    }
-  });
-      $(scrollTop).click(function () {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 800);
-    return false;
-  });
-});
